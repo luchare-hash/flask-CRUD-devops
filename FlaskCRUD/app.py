@@ -11,9 +11,11 @@ from config import Config
 from models.adapter_parser import AdapterPolygon
 from dependencies import configure
 from models.service import Meters
+import pymysql
+pymysql.install_as_MySQLdb()
+
 
 app = Flask(__name__)
-app.secret_key = "Secret Key"
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
